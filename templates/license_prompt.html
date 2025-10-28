@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoDelta — Лицензия</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #212529;
+        }
+        .license-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        .license-container h2 {
+            margin-top: 0;
+            color: #1a1a1a;
+            font-size: 24px;
+        }
+        .license-container p {
+            color: #6c757d;
+            margin-bottom: 24px;
+        }
+        #licenseInput {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin: 12px 0;
+            box-sizing: border-box;
+        }
+        #licenseInput:focus {
+            outline: none;
+            border-color: #212529;
+            box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.1);
+        }
+        #licenseError {
+            color: #dc3545;
+            min-height: 20px;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #000;
+        }
+        .example {
+            font-size: 13px;
+            color: #6c757d;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="license-container">
+        <h2>GeoDelta — Проверка лицензии</h2>
+        <p>Введите ваш лицензионный ключ для доступа к системе сравнения карт.</p>
+        <input type="text" id="licenseInput" placeholder="Введите ключ доступа" autocomplete="off">
+        <div id="licenseError"></div>
+        <button class="submit-btn" onclick="verifyAndProceed()">Продолжить</button>
+        <div class="example">Пример ключа: <code>$$1794/5631ab</code></div>
+    </div>
+
+    <script>
+        function verifyAndProceed() {
+            const key = document.getElementById('licenseInput').value.trim();
+            const errorEl = document.getElementById('licenseError');
+
+            if (!key) {
+                errorEl.textContent = 'Пожалуйста, введите ключ доступа';
+                return;
+            }
+
+            fetch('/verify-license', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({key: key})
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.valid) {
+                    // Загружаем основной интерфейс
+                    fetch('/main-interface')
+                        .then(response => response.text())
+                        .then(html => {
+                            document.open();
+                            document.write(html);
+                            document.close();
+                            // Сохраняем ключ в глобальной переменной
+                            window.__LICENSE_KEY = key;
+                        });
+                } else {
+                    errorEl.textContent = data.message || 'Неверный ключ';
+                }
+            })
+            .catch(err => {
+                errorEl.textContent = 'Ошибка подключения к серверу';
+                console.error(err);
+            });
+        }
+
+        document.getElementById('licenseInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') verifyAndProceed();
+        });
+    </script>
+</body>
+</html>
