@@ -5,6 +5,7 @@
     За считанные секунды она находит все изменения, проверяет их на соответствие градостроительным нормам и формирует готовый отчёт с визуализацией и Excel-таблицей.   
      	Ссылка на видео с работой сайта - https://disk.yandex.ru/i/0ztDMUSUIkdc4g
 		Ссылка на архив данных https://disk.yandex.ru/d/2F6MRfe8XLfsQA
+		Ссылка на exe приложение (вес 6Гб) https://drive.google.com/file/d/1OuSAmKfmBHOg5n53SqN5xCL8R4UcH-Rs/view?usp=sharing
 
 
  
