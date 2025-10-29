@@ -138,7 +138,7 @@ Finish/
 ├── Main.py
 ├── requirements.txt
 ├── licenses.xlsx
-├── Совместимость\_зон\_Калининград\_географ.xlsx
+├── compatibility_matrix.xlsx  
 ├── static/
 │   ├── light_them.jpg
 │   ├── night_them.jpg
