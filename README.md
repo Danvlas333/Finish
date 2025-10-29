@@ -137,7 +137,7 @@ python app.py
 13
 14
 geodelta/
-├── app.py                     # Основной Flask-сервер
+├── Main.py                     # Основной Flask-сервер
 ├── requirements.txt           # Зависимости
 ├── licenses.xlsx              # База лицензий
 ├── Совместимость_зон_....xlsx # Матрица совместимости
