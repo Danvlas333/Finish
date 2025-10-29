@@ -119,26 +119,14 @@ python Main.py
  
 📁 Структура проекта 
  
- 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
+
+
+## 📁 Структура проекта
 Finish/
 ├── Main.py
 ├── requirements.txt
 ├── licenses.xlsx
-├── compatibility_matrix.xlsx  
+├── Совместимость_зон_Калининград_географ.xlsx
 ├── static/
 │   ├── light_them.jpg
 │   ├── night_them.jpg
@@ -148,6 +136,7 @@ Finish/
 │   ├── license_prompt.html
 │   └── markers_view.html
 └── static/results/
+
  
  
  
