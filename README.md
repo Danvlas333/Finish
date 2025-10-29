@@ -136,8 +136,9 @@ python app.py
 12
 13
 14
+
 Finish/
-├── Main.py                     # Основной Flask-сервер
+├── Main.py                    # Основной Flask-сервер
 ├── requirements.txt           # Зависимости
 ├── licenses.xlsx              # База лицензий
 ├── Совместимость_зон_....xlsx # Матрица совместимости
