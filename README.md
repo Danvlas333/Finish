@@ -136,7 +136,7 @@ python app.py
 12
 13
 14
-geodelta/
+Finish/
 ├── Main.py                     # Основной Flask-сервер
 ├── requirements.txt           # Зависимости
 ├── licenses.xlsx              # База лицензий
