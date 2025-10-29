@@ -135,19 +135,19 @@ python Main.py
 13
 14
 Finish/
-├── Main.py                    # Основной Flask-сервер
-├── requirements.txt           # Зависимости
-├── licenses.xlsx              # База лицензий
-├── Совместимость_зон_Калининград_географ.xlsx # Матрица совместимости
+├── Main.py
+├── requirements.txt
+├── licenses.xlsx
+├── Совместимость\_зон\_Калининград\_географ.xlsx
 ├── static/
-│   ├── light_them.jpg         # Фон светлой темы
-│   ├── night_them.jpg         # Фон тёмной темы
-│   └── uploads/               # Загруженные файлы (авто)
+│   ├── light_them.jpg
+│   ├── night_them.jpg
+│   └── uploads/
 ├── templates/
-│   ├── index.html             # Основной интерфейс с анимированным логотипом
-│   ├── license_prompt.html    # Экран ввода лицензии
-│   └── markers_view.html      # Интерактивный просмотр изменений
-└── static/results/            # Результаты обработки (генерируется автоматически)
+│   ├── index.html
+│   ├── license_prompt.html
+│   └── markers_view.html
+└── static/results/
  
  
  
